@@ -8,7 +8,7 @@ window.onload = function(){
    document.getElementById("user").textContent = user.nome;
    document.getElementById("perfil").textContent = user.nome;
    document.getElementById("idPerfil").textContent = user.id;
-   console.log(id)
+
 };
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -22,15 +22,17 @@ document.addEventListener("DOMContentLoaded", function(){
             const card = document.createElement("div")
             card.className = "card"
             card.style.width = "18rem"
+            card.style.margin = "10px"
             
-            const imgs = document.createElement("img")
-            imgs.src = produto.imgs
-            imgs.className = "card-img-top"
+            
+            const imagem = document.createElement("img")
+            imagem.src = produto.imagem
+            imagem.className = "card-img-top"
 
             const cardBody = document.createElement("div")
             cardBody.className = "cardBody"
 
-            const cardTitle =  document.createElement("div")
+            const cardTitle =  document.createElement("h5")
             cardTitle.className = "cardTitle"
             cardTitle.textContent = produto.descricao
 
@@ -42,7 +44,28 @@ document.addEventListener("DOMContentLoaded", function(){
             btnAdicionarAoCarrinho.href = '#'
             btnAdicionarAoCarrinho.className = "btn btn-primary btn-adicionar-ao-carrinho"
             btnAdicionarAoCarrinho.setAttribute("data-indice", index )
+            btnAdicionarAoCarrinho.textContent = "Adicionar ao carrinho"
+
+            cardBody.appendChild(cardText)
+            cardBody.appendChild(cardTitle)
+            cardBody.appendChild(btnAdicionarAoCarrinho)
+
+            card.appendChild(imagem)
+            card.appendChild(cardBody)
+
+            produtosContainer.appendChild(card)
         });
     })
     .catch((error) => console.error("Erro ao carregar o arquivo JSON", error))
+
+    //Manipulador de eventos para o botão 'Adicionar ao carrinho'.
+    $("#produtos-container").on("click", ".btn-adicionar-ao-carrinho", function(){
+        const indexDoProduto = $(this).data("indice");
+        const produtoSelecionado = produtos[indexDoProduto]
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];   // || ou em script
+        carrinho.push(produtoSelecionado)
+        localStorage.setItem("carrinho", JSON.stringify(carrinho))
+        alert("Produto adicionado ao carrinho")
+      
+    })
 })

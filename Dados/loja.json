@@ -2,19 +2,19 @@
     {
         "id": 1,
         "descricao": "Produto 1",
-        "imagem": "../Assets/img/Brinquedo1.webp",
+        "imagem": "../Assets/img/samsung-001-tt6r5vo2px.webp",
         "preco": 10.0
     },
     {
         "id": 2,
         "descricao": "Produto 2",
-        "imagem": "../Assets/img/car.jfif",
+        "imagem": "../Assets/img/XPS 16.avif",
         "preco": 50.0 
     },
     {
         "id": 3,
         "descricao": "Produto 3",
-        "imagem": "../Assets/img/hgw14_10.jpg",
+        "imagem": "../Assets/img/PREDATOR.png",
         "preco": 25.0
     }
 ]

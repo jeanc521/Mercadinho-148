@@ -3,3 +3,22 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    height: auto;
+    overflow-x: hidden;
+    padding: 20px;
+}
+.wrap{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+}
+.wrap{
+    color: black;
+    
+}
