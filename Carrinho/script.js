@@ -34,10 +34,10 @@ function exibirCarrinho(){
         listElement.append(listItem)
         totalPreco += item.preco
         })
-        totaltElement.text(`Total: $${totalPreco}`)
+        totalElement.text(`Total: $${totalPreco}`)
     }
     function removerItemDoCarrinho(index){
-        carrinho.plice(index, 1);
+        carrinho.splice(index, 1);
         localStorage.setItem("carrinho", JSON.stringify(carrinho))
         exibirCarrinho();
     }
@@ -49,25 +49,24 @@ function gerarDocumentoWord(){
     const listaElement = document.getElementById("lista")
     const totalElement = document.getElementById("total")
 
-    //Clona  alista para eviat a modificação  dereta da lista.
-    const listClone = listaElement.cloneNode(true)
-    $(listClone).find("button").remove()
 
-    const listaHtml = listClone.innerHTML
-    const totalHtml = listClone.innerHTML
+    //Clona  alista para eviat a modificação  dereta da lista.
+    const listaClone = listaElement.cloneNode(true)
+    $(listaClone).find("button").remove()
+
+    const listaHtml = listaClone.innerHTML
+    const totalHtml = listaClone.innerHTML
 
     const conteudohtml = `
     <html>
         <head>
             <meta charset="UTF=8" />
-            </head>
-            <body>
+         </head>
+        <body>
             <h1>Pedido Confirmado</h1>
             ${listaHtml}
             <br><br>
             ${totalHtml},
-
-
             </body>
     </html>
     `;
